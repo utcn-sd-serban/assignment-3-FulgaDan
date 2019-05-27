@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "61b8cbca-54d1-49d3-b86e-101584b83b90",
+		"name": "Tags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "more than one tag present",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "less than 3 tags",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79b98977-1db5-458e-bcb8-e7683113481e",
+						"exec": [
+							"pm.test(\"less than 3 tags\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.lt(3);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tags"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

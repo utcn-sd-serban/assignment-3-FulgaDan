@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "4e6ba9be-fbc7-4a81-b0e6-a6fa559c1c79",
+		"name": "Read users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Response time ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acbc35de-636b-49cf-9fd0-38cfd938d262",
+						"exec": [
+							"pm.test(\"4 users available\", function() {",
+							"    var users = pm.response.json();",
+							"    pm.expect(users.length).to.be.equal(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "exactly 4 users available",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acbc35de-636b-49cf-9fd0-38cfd938d262",
+						"exec": [
+							"pm.test(\"4 users available\", function() {",
+							"    var users = pm.response.json();",
+							"    pm.expect(users.length).to.be.equal(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searching for a particularly user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acbc35de-636b-49cf-9fd0-38cfd938d262",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"miron\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "response time below 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce3a67b0-af71-4097-b0b0-aa9ab37f8ec9",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "c31748e1-9bab-4f89-93bb-36cf5412c197",
+		"name": "Adding users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Inserting a new user and checking if the body is correct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a260af53-8940-4039-a9d1-d6e19fd105e2",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body( '{\"id\":13,\"username\":\"lala\",\"password\":\"lolo\"}');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\" : \"12\", \"username\": \"lala\", \"password\": \"lolo\" }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "response time for adding",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce3a67b0-af71-4097-b0b0-aa9ab37f8ec9",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 14,\n        \"username\": \"us222er12\",\n        \"password\": \"aa\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/usersaaa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce3a67b0-af71-4097-b0b0-aa9ab37f8ec9",
+						"exec": [
+							"pm.test(\"Not found\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([404]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user22",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 14,\n        \"username\": \"us222eerrer12\",\n        \"password\": \"aa\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usersaaa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usersaaa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
